@@ -2,12 +2,16 @@ package org.example;
 
 import java.text.SimpleDateFormat;
 
-public class Main {
+/*
+
+ EXEMPLO BASEADO NO CÓDIGO DISPONÍVEL EM https://www.paulocollares.com.br/programacao/exemplo-de-mqtt-com-java/
+
+ */
+
+public class Publisher {
     public static void main(String[] args) throws InterruptedException {
         ClienteMQTT clienteMQTT = new ClienteMQTT("tcp://localhost:1883", null, null);
         clienteMQTT.iniciar();
-
-        new Ouvinte(clienteMQTT, "/mensagens/", 0);
 
         while (true) {
             Thread.sleep(1000);
